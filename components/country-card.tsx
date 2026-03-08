@@ -1,5 +1,4 @@
 import type { CountryRecord } from '@/lib/game/types';
-import { cn } from '@/lib/utils/cn';
 
 interface CountryCardProps {
   country: CountryRecord;
@@ -10,10 +9,7 @@ export function CountryCard({ country, side }: CountryCardProps) {
   return (
     <article
       data-testid={`country-${side}`}
-      className={cn(
-        'relative overflow-hidden rounded-[2rem] border border-line bg-panel/90 p-6 shadow-glow backdrop-blur',
-        side === 'left' ? 'md:-rotate-[1deg]' : 'md:rotate-[1deg]',
-      )}
+      className="relative overflow-hidden rounded-[2rem] border border-line bg-panel/90 p-6 shadow-glow backdrop-blur"
     >
       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent/90 via-white/50 to-success/60" />
       <div className="mb-5 flex items-start justify-between gap-4">

@@ -36,6 +36,35 @@ function ChoiceCard({
   const rawValue = side === 'left' ? row.leftValue : row.rightValue;
   const maxValue = Math.max(row.leftValue, row.rightValue);
 
+  if (phase === 'playing') {
+    return (
+      <button
+        type="button"
+        onClick={() => onSelect(side)}
+        aria-pressed={isSelected}
+        aria-label={`Choose ${countryName} for ${row.label}`}
+        className={cn(
+          'group relative flex min-h-48 w-full flex-col items-center justify-center rounded-[1.5rem] border p-6 text-center transition duration-200 sm:min-h-52',
+          'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+          isSelected
+            ? 'border-accent bg-accent/10 shadow-[0_0_0_1px_rgba(255,184,77,0.3)] hover:border-accent hover:bg-accent/10'
+            : 'border-white/10 bg-white/[0.04] hover:border-white/25 hover:bg-white/[0.07]',
+        )}
+      >
+        {isSelected ? (
+          <span className="absolute right-4 top-4 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.22em] text-accent">
+            Selected
+          </span>
+        ) : null}
+        <div className="flex flex-col items-center justify-center gap-4">
+          <span className={cn('font-display text-[1.75rem] leading-[0.92] text-ink sm:text-[2.1rem] lg:text-[2.7rem]', isSelected && 'text-accent')}>
+            {countryName}
+          </span>
+        </div>
+      </button>
+    );
+  }
+
   return (
     <button
       type="button"
@@ -46,7 +75,6 @@ function ChoiceCard({
       className={cn(
         'group flex min-h-44 w-full flex-col rounded-[1.5rem] border p-4 text-left transition duration-200',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
-        phase === 'playing' && 'hover:border-white/25 hover:bg-white/[0.07]',
         isSelected ? 'border-accent bg-accent/10 shadow-[0_0_0_1px_rgba(255,184,77,0.3)]' : 'border-white/10 bg-white/[0.04]',
         isCorrect && 'border-success bg-success/10 shadow-[0_0_0_1px_rgba(67,197,158,0.25)]',
         isWrongPick && 'border-danger bg-danger/10 shadow-[0_0_0_1px_rgba(242,109,109,0.2)]',
@@ -99,16 +127,13 @@ export function MetricRow({
       }
     >
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h3 id={`${row.id}-label`} className="text-xl font-semibold text-ink sm:text-2xl">
-            {row.label}
-          </h3>
-          <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-mist">
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">{row.unitLabel}</span>
-            {row.sourceYear ? <span>Source year {row.sourceYear}</span> : null}
-          </div>
+        <h3 id={`${row.id}-label`} className="text-xl font-semibold text-ink sm:text-2xl">
+          {row.label}
+        </h3>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-mist sm:justify-end">
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">{row.unitLabel}</span>
+          {row.sourceYear ? <span>Source year {row.sourceYear}</span> : null}
         </div>
-        <p className="text-sm uppercase tracking-[0.22em] text-mist/70">Pick the higher value</p>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2">
