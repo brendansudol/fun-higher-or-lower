@@ -1,0 +1,38 @@
+[
+  {
+    "seed": "ATLAS1",
+    "leftSlug": "brazil",
+    "rightSlug": "japan",
+    "metricIds": [
+      "population",
+      "land_area",
+      "gdp",
+      "gdp_per_capita",
+      "life_expectancy"
+    ]
+  },
+  {
+    "seed": "ATLAS2",
+    "leftSlug": "canada",
+    "rightSlug": "egypt",
+    "metricIds": [
+      "population",
+      "land_area",
+      "internet_users_pct",
+      "forest_area_pct",
+      "fertility_rate"
+    ]
+  },
+  {
+    "seed": "ATLAS3",
+    "leftSlug": "india",
+    "rightSlug": "norway",
+    "metricIds": [
+      "population",
+      "gdp",
+      "gdp_per_capita",
+      "co2_per_capita",
+      "renewable_electricity_pct"
+    ]
+  }
+]
