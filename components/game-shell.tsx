@@ -262,7 +262,7 @@ export function GameShell({ categories, countries, fallbackRounds }: GameShellPr
             </div>
             <h1 className="mt-4 font-display text-5xl leading-none text-ink sm:text-6xl">Higher or Lower</h1>
             <p className="mt-4 max-w-xl text-lg text-mist">
-              Pick which country has the higher value in each category, then reveal the full board in one shot.
+              Pick the country with the higher value in each category.
             </p>
           </div>
           <HeaderActions onCopyLink={handleCopyLink} onNewRound={handleNewRound} copyStatus={copyStatus} />
