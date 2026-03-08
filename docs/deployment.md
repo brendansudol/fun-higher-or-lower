@@ -25,6 +25,24 @@ pnpm build
 
 The deployable artifact is the `out/` directory.
 
+## Vercel Quick Start
+
+This repo is already in a good state for Vercel:
+
+- Next.js is auto-detected
+- `pnpm build` is the project build script
+- `output: 'export'` is already enabled in `next.config.ts`
+
+Recommended setup in the Vercel dashboard:
+
+1. Import `brendansudol/fun-higher-or-lower` from GitHub
+2. Let Vercel detect the framework
+3. Leave the default install command alone
+4. Leave the default output handling alone unless you explicitly need to override it
+5. Deploy
+
+After the first deploy, every push to `main` will trigger a new production deployment by default.
+
 ## Local Preview Of The Production Build
 
 Serve the exported files locally:

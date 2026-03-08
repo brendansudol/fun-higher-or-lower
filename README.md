@@ -118,4 +118,11 @@ Build output:
 out/
 ```
 
+For Vercel:
+
+1. Import the GitHub repository in Vercel.
+2. Keep the detected Next.js framework settings.
+3. Use `pnpm build` as the build command if you override settings manually.
+4. Deploy.
+
 Deployment notes are in [docs/deployment.md](docs/deployment.md).
